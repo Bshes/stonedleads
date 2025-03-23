@@ -21,18 +21,15 @@
         .hero {
             min-height: 100vh;
             padding: 2rem;
-            position: relative;
-            overflow: hidden;
+            display: flex;
+            align-items: center;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 120px 0;
+            width: 100%;
+            padding: 0 20px;
         }
 
         .headline {
@@ -47,12 +44,10 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s forwards;
-            clear: both;
         }
 
         .headline span:first-child {
             animation-delay: 0.2s;
-            margin-bottom: 0.5rem;
         }
 
         .headline span:last-child {
@@ -69,32 +64,32 @@
             animation-delay: 0.6s;
         }
 
-        /* CTA Button - Compact Version */
+        /* COMPACT CTA BUTTON */
         .cta-button {
-            display: inline-flex;
-            padding: 0.7rem 1.2rem;
+            display: inline-block;
+            padding: 0.5rem 1rem !important; /* Force compact size */
             background-color: #FF6F61;
             color: #FFFFFF;
             text-decoration: none;
             border-radius: 4px;
             font-family: 'Poppins', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             transition: all 0.3s ease;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s forwards;
             animation-delay: 0.8s;
-            letter-spacing: 0.3px;
-            width: fit-content;
-            white-space: nowrap;
-            border: 2px solid transparent;
+            line-height: 1;
+            min-width: 0; /* Allow natural shrinking */
+            width: auto !important; /* Override any fixed widths */
+            box-shadow: none !important;
         }
 
         .cta-button:hover {
             background-color: #ff857a;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 111, 97, 0.3);
+            transform: translateY(-2px) !important;
+            box-shadow: 0 3px 8px rgba(255, 111, 97, 0.3) !important;
         }
 
         @keyframes fadeInUp {
@@ -126,26 +121,10 @@
             .subheadline {
                 font-size: 1.2rem;
             }
-
-            .cta-button {
-                font-size: 1rem;
-                padding: 0.6rem 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 80px 0;
-            }
-            
-            .headline {
-                font-size: 2rem;
-            }
             
             .cta-button {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem !important;
             }
         }
     </style>
@@ -168,26 +147,13 @@
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('.sticky-nav');
             const heroHeight = document.querySelector('.hero').offsetHeight;
-            
-            if (window.pageYOffset > heroHeight) {
-                nav.classList.add('nav-visible');
-            } else {
-                nav.classList.remove('nav-visible');
-            }
+            nav.classList.toggle('nav-visible', window.scrollY > heroHeight * 0.2);
         });
 
         document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(() => {
-                const elements = [
-                    ...document.querySelectorAll('.headline span'),
-                    document.querySelector('.subheadline'),
-                    document.querySelector('.cta-button')
-                ];
-                
-                elements.forEach(element => {
-                    if(element) element.style.animationPlayState = 'running';
-                });
-            }, 100);
+            document.querySelectorAll('.headline span, .subheadline, .cta-button').forEach(el => {
+                el.style.animationPlayState = 'running';
+            });
         });
     </script>
 </body>
