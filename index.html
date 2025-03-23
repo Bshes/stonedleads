@@ -71,30 +71,31 @@
 
         .cta-button {
             display: inline-block;
-            padding: 0.8rem 2rem; /* Reduced padding */
+            padding: 0.6rem 1.5rem; /* More compact padding */
             background-color: #FF6F61;
-            color: #FFFFFF; /* Brighter white */
+            color: #FFFFFF;
             text-decoration: none;
             border-radius: 4px;
             font-family: 'Poppins', sans-serif;
-            font-size: 1.25rem; /* Larger text */
-            font-weight: 600; /* Bolder text */
+            font-size: 1.25rem;
+            font-weight: 600;
             transition: all 0.3s ease;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s forwards;
             animation-delay: 0.8s;
-            letter-spacing: 0.5px; /* Improved readability */
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle depth */
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 2px solid transparent; /* Added subtle border */
         }
 
         .cta-button:hover {
             background-color: #ff857a;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(255, 111, 97, 0.3),
-                        0 0 8px rgba(255, 255, 255, 0.2); /* Added glow effect */
-            color: #FFFFFF;
-            text-shadow: 0 2px 4px rgba(255,255,255,0.3); /* Text brightness enhancement */
+                        0 0 8px rgba(255, 255, 255, 0.2);
+            text-shadow: 0 2px 4px rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.2); /* Hover border effect */
         }
 
         @keyframes fadeInUp {
@@ -128,8 +129,8 @@
             }
 
             .cta-button {
-                font-size: 1.1rem; /* Adjusted mobile size */
-                padding: 0.7rem 1.5rem;
+                font-size: 1.1rem;
+                padding: 0.5rem 1.2rem; /* Adjusted mobile padding */
             }
         }
 
@@ -143,10 +144,10 @@
             }
             
             .cta-button {
-                width: 100%;
+                width: auto; /* Natural width on mobile */
                 text-align: center;
                 font-size: 1rem;
-                padding: 0.8rem 1rem;
+                padding: 0.6rem 1rem;
             }
         }
     </style>
