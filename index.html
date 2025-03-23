@@ -40,10 +40,21 @@
             font-size: 4rem;
             line-height: 1.1;
             margin-bottom: 2rem;
+        }
+
+        .headline span {
+            display: block;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s forwards;
+        }
+
+        .headline span:first-child {
             animation-delay: 0.2s;
+        }
+
+        .headline span:last-child {
+            animation-delay: 0.4s;
         }
 
         .subheadline {
@@ -53,7 +64,7 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s forwards;
-            animation-delay: 0.4s;
+            animation-delay: 0.6s;
         }
 
         .cta-button {
@@ -68,7 +79,7 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s forwards;
-            animation-delay: 0.6s;
+            animation-delay: 0.8s;
         }
 
         .cta-button:hover {
@@ -97,6 +108,32 @@
         .nav-visible {
             top: 0;
         }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .headline {
+                font-size: 2.5rem;
+            }
+            
+            .subheadline {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 80px 0;
+            }
+            
+            .headline {
+                font-size: 2rem;
+            }
+            
+            .cta-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -104,7 +141,10 @@
 
     <section class="hero">
         <div class="container">
-            <h1 class="headline">Rock-Solid Marketing. Unshakable Results.</h1>
+            <h1 class="headline">
+                <span>Rock-Solid Marketing.</span>
+                <span>Unshakable Results.</span>
+            </h1>
             <p class="subheadline">Turn your digital presence into a foundation for sustainable business growth.</p>
             <a href="#form" class="cta-button">Build Your Foundation →</a>
         </div>
@@ -126,9 +166,15 @@
         // Trigger animations on load
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
-                document.querySelector('.headline').style.animationPlayState = 'running';
-                document.querySelector('.subheadline').style.animationPlayState = 'running';
-                document.querySelector('.cta-button').style.animationPlayState = 'running';
+                const elements = [
+                    ...document.querySelectorAll('.headline span'),
+                    document.querySelector('.subheadline'),
+                    document.querySelector('.cta-button')
+                ];
+                
+                elements.forEach(element => {
+                    if(element) element.style.animationPlayState = 'running';
+                });
             }, 100);
         });
     </script>
