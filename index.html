@@ -3,47 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StonedLeads | Data-Backed Marketing Growth</title>
+    <title>StonedLeads - Rock-Solid Marketing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
     <style>
-        /* Base Styles */
         :root {
-            --primary: #2F4F4F;  /* Dark Slate Gray */
-            --secondary: #8F9779;  /* Sage Green */
-            --accent: #DAA520;  /* Golden Rod */
-            --background: #F5F5F5;
+            --navy: #1A2A44;
+            --white: #F9F6EE;
+            --coral: #FF6F61;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui;
         }
 
         body {
-            background: var(--background);
-            color: #333;
-            line-height: 1.7;
+            font-family: 'Open Sans', sans-serif;
+            background: var(--white);
+            color: var(--navy);
+            scroll-behavior: smooth;
         }
 
-        /* Typography */
         h1, h2, h3 {
-            font-family: 'Georgia', serif;
-            color: var(--primary);
+            font-family: 'Poppins', sans-serif;
         }
 
-        h1 { font-size: 2.8rem; margin-bottom: 1.5rem; }
-        h2 { font-size: 2.2rem; margin: 3rem 0 2rem; }
-        h3 { font-size: 1.4rem; margin: 1.5rem 0; }
-
-        /* Sections */
         section {
             padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
             opacity: 0;
-            transform: translateY(30px);
-            transition: 1s ease;
+            transform: translateY(20px);
+            transition: 0.8s ease;
         }
 
         section.visible {
@@ -53,183 +45,238 @@
 
         /* Hero Section */
         .hero {
+            background: linear-gradient(var(--navy), rgba(26,42,68,0.9)),
+                        url('stone-texture.jpg');
+            color: var(--white);
             text-align: center;
-            padding: 8rem 2rem;
-            background: linear-gradient(rgba(47, 79, 79, 0.9), rgba(47, 79, 79, 0.9)),
-                        url('pattern.svg');
-            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .hero h1 { color: white; }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
 
-        /* Data-Backed Claims */
-        .proof-points {
+        .cta-button {
+            background: var(--coral);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        /* Services Grid */
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
-            margin: 4rem 0;
-        }
-
-        .proof-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            color: var(--accent);
-            font-weight: 700;
-            margin: 1rem 0;
-        }
-
-        /* Conversion Timeline */
-        .conversion-timeline {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 1rem;
             margin: 3rem 0;
         }
 
-        .month-bar {
-            height: 200px;
-            background: #e0e0e0;
-            border-radius: 4px;
-            position: relative;
+        .service-card {
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
-        .month-fill {
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--navy);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+        }
+
+        /* Results Section */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            background: var(--navy);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .result-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .graph {
+            height: 200px;
+            background: #f0f0f0;
+            margin: 1rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .graph-bar {
             position: absolute;
             bottom: 0;
-            width: 100%;
-            background: var(--secondary);
-            border-radius: 4px;
-            height: 0;
-            transition: 2s height ease-out;
+            width: 20%;
+            background: var(--coral);
+            animation: grow 1.5s ease-out;
         }
 
-        /* Performance Comparison */
-        .performance-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+        @keyframes grow {
+            from { height: 0%; }
+            to { height: 100%; }
+        }
+
+        /* Process Timeline */
+        .process-steps {
+            position: relative;
             margin: 3rem 0;
         }
 
-        .speed-meter {
-            background: white;
-            padding: 2rem;
+        .process-step {
+            margin: 4rem 0;
+            padding-left: 2rem;
+            border-left: 3px solid var(--coral);
+        }
+
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--navy);
+            position: absolute;
+            left: -22px;
+            border-radius: 50%;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ddd;
             border-radius: 8px;
+        }
+
+        footer {
             text-align: center;
+            padding: 3rem;
+            background: var(--navy);
+            color: var(--white);
         }
 
-        .speed-bar {
-            height: 30px;
-            background: var(--accent);
-            margin: 1rem 0;
-            border-radius: 4px;
-        }
-
-        /* Trust Badges */
-        .sources {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 1rem;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: var(--primary);
-            color: white;
-            text-align: center;
-            border-radius: 12px;
-            padding: 4rem;
+        @media (max-width: 768px) {
+            .services-grid, .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
-    <section class="hero">
-        <h1>Turn Marketing Spend Into Revenue Stone</h1>
-        <p>Where Data Science Meets Creative Execution</p>
-        
-        <div class="proof-points">
-            <div class="proof-card">
-                <div class="stat-number">313%</div>
-                <h3>Higher Success Probability</h3>
-                <p class="sources">(CoSchedule Strategy Research)</p>
+    <section class="hero visible">
+        <h1>Rock-Solid Marketing.<br>Unshakable Results.</h1>
+        <p>Turn your digital presence into a foundation for sustainable business growth.</p>
+        <button class="cta-button">Build Your Foundation →</button>
+        <p class="data-point">Businesses with managed social media see 119% higher ROI (Lyfe Marketing)</p>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+        <h2>Marketing That Stands The Test Of Time</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"></div>
+                <h3>Bedrock Audience Building</h3>
+                <p>Stop watching competitors dominate your space. Our proven approach builds engaged followers who become loyal customers.</p>
+                <p class="data-source">91% visit brand websites after social follow (Sprout Social)</p>
             </div>
-            <div class="proof-card">
-                <div class="stat-number">119%</div>
-                <h3>Average ROI Increase</h3>
-                <p class="sources">(Social Media Examiner)</p>
-            </div>
-            <div class="proof-card">
-                <div class="stat-number">47%</div>
-                <h3>Faster Growth Rate</h3>
-                <p class="sources">(HubSpot Industry Benchmarks)</p>
-            </div>
+            <!-- Repeat for other services -->
         </div>
     </section>
 
-    <!-- Conversion Growth -->
-    <section class="conversion">
-        <h2>Documented Conversion Growth</h2>
-        <p class="subhead">6-Month Client Engagement Pattern</p>
-        
-        <div class="conversion-timeline">
-            <div class="month-bar">
-                <div class="month-fill" style="height: 30%"><span>Jan</span></div>
+    <!-- Results -->
+    <section class="results">
+        <h2>Concrete Results You Can Build On</h2>
+        <div class="results-grid">
+            <div class="result-card">
+                <h3>47% Revenue Increase</h3>
+                <div class="graph">
+                    <div class="graph-bar" style="left: 0; height: 70%;"></div>
+                    <!-- Add more bars -->
+                </div>
+                <p class="data-source">Hubspot 2023 E-commerce Report</p>
             </div>
-            <!-- Repeat for Feb-Jun with increasing heights -->
-        </div>
-        
-        <div class="performance-grid">
-            <div class="speed-meter">
-                <h3>Website Performance</h3>
-                <p>Average Load Time Improvement</p>
-                <div class="speed-bar" style="width: 67%"></div>
-                <p>2.8s → 0.9s (Google PageSpeed)</p>
-            </div>
-            <div class="speed-meter">
-                <h3>Audience Growth</h3>
-                <p>90-Day Social Media Expansion</p>
-                <div class="speed-bar" style="width: 300%"></div>
-                <p>1,200 → 4,800 Followers</p>
-            </div>
+            <!-- Add other result cards -->
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <h2>First 100 Clients Receive:</h2>
-        <ul>
-            <li>✓ Free Conversion Audit ($2,500 Value)</li>
-            <li>✓ Guaranteed 20% Monthly Growth</li>
-            <li>✓ Dedicated Strategy Team</li>
-        </ul>
-        <button>Claim Foundation Offer →</button>
+    <!-- Process -->
+    <section class="process">
+        <h2>Building Your Marketing Monument</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-icon"></div>
+                <h3>Solid Strategy</h3>
+                <p>Week 1: Business analysis & roadmap creation</p>
+                <p class="data-point">313% more success (CoSchedule)</p>
+            </div>
+            <!-- Add other steps -->
+        </div>
     </section>
+
+    <!-- Contact -->
+    <section class="contact">
+        <h2>Lay Your First Stone Today</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Email Address">
+            <input type="text" placeholder="Business Name">
+            <select>
+                <option>Social Media Management</option>
+                <option>Copywriting</option>
+                <option>Ad Campaigns</option>
+                <option>Website Building</option>
+            </select>
+            <button class="cta-button">Build With StonedLeads</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 StonedLeads. All rights reserved.</p>
+        <p>Privacy Policy | Terms of Service | Cookie Policy</p>
+    </footer>
 
     <script>
-        // Animation trigger
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if(entry.isIntersecting) {
+                if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Animate progress bars
-                    entry.target.querySelectorAll('.month-fill, .speed-bar').forEach(el => {
-                        el.style.height = el.style.height;
-                        el.style.width = el.style.width;
-                    });
                 }
             });
         }, { threshold: 0.15 });
 
         document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
+            if (!section.classList.contains('hero')) {
+                observer.observe(section);
+            }
         });
     </script>
 </body>
