@@ -7,34 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
     <style>
         /* ===== RESET ===== */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        /* ===== CTA BUTTON (Priority Styles) ===== */
-        .cta-button {
-            /* Size Control */
-            display: inline-block !important;
-            padding: 4px 12px !important;
-            width: auto !important;
-            min-width: 0 !important;
-            
-            /* Text Control */
-            font-size: 14px !important;
-            line-height: 1.2 !important;
-            white-space: nowrap !important;
-            letter-spacing: normal !important;
-            
-            /* Visual Style */
-            background: #FF6F61 !important;
-            color: white !important;
-            border-radius: 3px !important;
-            text-decoration: none !important;
-            border: none !important;
-            box-shadow: none !important;
-            
-            /* Animation Reset */
-            transform: translateY(0) !important;
-            animation: none !important;
-            opacity: 1 !important;
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
         }
 
         /* ===== BASE STYLES ===== */
@@ -46,31 +22,69 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
         }
 
         .container {
             max-width: 1200px;
             padding: 20px;
+            text-align: center;
         }
 
+        /* ===== TYPOGRAPHY ===== */
         .headline {
             font-family: 'Poppins', sans-serif;
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
         }
 
         .subheadline {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-size: 1.25rem;
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
         }
 
-        /* ===== DEBUG BORDERS ===== */
-        /* Temporary borders to verify element sizes */
-        * { border: 1px solid rgba(255,0,0,0.3); }
+        /* ===== COMPACT CTA BUTTON ===== */
+        .cta-button {
+            display: inline-block;
+            padding: 8px 18px;
+            background: #FF6F61;
+            color: white !important;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            width: auto;
+            min-width: 0;
+            line-height: 1.35;
+            letter-spacing: 0.3px;
+        }
+
+        .cta-button:hover {
+            background: #ff7d6d;
+            transform: translateY(-1px);
+            box-shadow: 0 3px 12px rgba(255,111,97,0.25);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .headline {
+                font-size: 2.2rem;
+            }
+            
+            .subheadline {
+                font-size: 1.1rem;
+            }
+            
+            .cta-button {
+                padding: 6px 14px;
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
