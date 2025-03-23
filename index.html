@@ -6,31 +6,27 @@
     <title>Core Design Marketing</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
     <style>
-        /* ===== RESET ===== */
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* ===== BASE STYLES ===== */
         body {
             font-family: 'Open Sans', sans-serif;
             background-color: #1A2A44;
             color: #F9F6EE;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .container {
+        /* Hero Section */
+        .hero {
             max-width: 1200px;
-            padding: 20px;
-            text-align: center;
+            margin: 0 auto;
+            padding: 120px 20px;
         }
 
-        /* ===== TYPOGRAPHY ===== */
+        /* Headlines */
         .headline {
             font-family: 'Poppins', sans-serif;
             font-size: 3.5rem;
@@ -38,40 +34,44 @@
             margin-bottom: 1.5rem;
         }
 
+        .headline span {
+            display: block;
+        }
+
+        /* Subheadline */
         .subheadline {
             font-size: 1.25rem;
+            margin-bottom: 2.5rem;
             max-width: 600px;
-            margin: 0 auto 2.5rem;
             opacity: 0.9;
         }
 
-        /* ===== COMPACT CTA BUTTON ===== */
+        /* Compact CTA Button */
         .cta-button {
             display: inline-block;
-            padding: 8px 18px;
+            padding: 10px 25px;
             background: #FF6F61;
-            color: white !important;
+            color: white;
             font-family: 'Poppins', sans-serif;
-            font-size: 15px;
+            font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
             border-radius: 4px;
             transition: all 0.2s ease;
-            white-space: nowrap;
-            width: auto;
-            min-width: 0;
-            line-height: 1.35;
-            letter-spacing: 0.3px;
         }
 
         .cta-button:hover {
             background: #ff7d6d;
-            transform: translateY(-1px);
-            box-shadow: 0 3px 12px rgba(255,111,97,0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,111,97,0.3);
         }
 
-        /* ===== RESPONSIVE DESIGN ===== */
+        /* Responsive Design */
         @media (max-width: 768px) {
+            .hero {
+                padding: 80px 20px;
+            }
+            
             .headline {
                 font-size: 2.2rem;
             }
@@ -81,20 +81,20 @@
             }
             
             .cta-button {
-                padding: 6px 14px;
-                font-size: 14px;
+                font-size: 0.9rem;
+                padding: 8px 20px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <section class="hero">
         <h1 class="headline">
             <span>Rock-Solid Marketing.</span>
             <span>Unshakable Results.</span>
         </h1>
         <p class="subheadline">Turn your digital presence into a foundation for sustainable business growth.</p>
         <a href="#form" class="cta-button">Build Your Foundation →</a>
-    </div>
+    </section>
 </body>
 </html>
