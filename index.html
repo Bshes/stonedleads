@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StonedLeads - Complete Marketing Solution</title>
+    <title>StonedLeads - Hero Section</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -20,335 +20,142 @@
 
         body {
             font-family: 'Open Sans', sans-serif;
-            background: var(--white);
+            background-color: var(--white);
             color: var(--navy);
-            line-height: 1.6;
         }
 
-        h1, h2, h3 {
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: rgba(26, 42, 68, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
             font-family: 'Poppins', sans-serif;
-            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            font-size: 1.5rem;
+            text-decoration: none;
         }
 
-        h1 { font-size: 2.8rem; }
-        h2 { font-size: 2.2rem; margin: 4rem 0 2rem; }
-        h3 { font-size: 1.4rem; }
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(26, 42, 68, 0.9), rgba(26, 42, 68, 0.98)),
+                        url('stone-texture.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 0 2rem;
+            text-align: center;
+        }
 
-        section {
-            padding: 6rem 2rem;
+        .hero-content {
             max-width: 1200px;
             margin: 0 auto;
             opacity: 0;
             transform: translateY(20px);
-            transition: 0.8s ease;
+            animation: fadeUp 0.8s ease forwards;
+            animation-delay: 0.3s;
         }
 
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(var(--navy), rgba(26,42,68,0.9)),
-                        url('stone-texture.jpg');
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4rem;
             color: var(--white);
-            text-align: center;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
         }
 
-        .data-point {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .service-card {
-            padding: 2rem;
-            background: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            position: relative;
-        }
-
-        .service-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--navy);
-            border-radius: 8px;
-            margin-bottom: 1rem;
-        }
-
-        .service-cta {
-            color: var(--coral);
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 1rem;
-            font-weight: bold;
-        }
-
-        /* Results Section */
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .result-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        .graph {
-            height: 200px;
-            background: #f0f0f0;
-            margin: 1.5rem 0;
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-        }
-
-        .graph-bar {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background: var(--coral);
-            height: 0;
-            animation: grow 1.5s ease-out forwards;
-        }
-
-        @keyframes grow {
-            from { height: 0; }
-            to { height: var(--height); }
-        }
-
-        /* Process Timeline */
-        .process-steps {
-            position: relative;
-            margin: 4rem 0;
-        }
-
-        .process-step {
-            margin: 4rem 0;
-            padding-left: 3rem;
-            border-left: 3px solid var(--coral);
-            position: relative;
-        }
-
-        .step-number {
-            position: absolute;
-            left: -1.2rem;
-            top: 0;
-            background: var(--navy);
-            color: var(--white);
-            width: 2.4rem;
-            height: 2.4rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Poppins';
-        }
-
-        .step-timeframe {
-            color: var(--coral);
-            font-size: 0.9rem;
-            margin: 0.5rem 0;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 15px;
+        .subheadline {
+            font-size: 1.5rem;
+            color: rgba(249, 246, 238, 0.9);
+            margin-bottom: 2.5rem;
             max-width: 800px;
-            margin: 0 auto;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        input, select {
-            width: 100%;
-            padding: 1rem;
-            margin: 0.8rem 0;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem;
-            background: var(--navy);
+        .cta-button {
+            display: inline-block;
+            padding: 1.25rem 2.5rem;
+            background-color: var(--coral);
             color: var(--white);
-            margin-top: 4rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 111, 97, 0.35);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 768px) {
-            .services-grid, .results-grid {
-                grid-template-columns: 1fr;
+            h1 {
+                font-size: 2.5rem;
             }
             
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.8rem; }
+            .subheadline {
+                font-size: 1.2rem;
+            }
+            
+            .cta-button {
+                padding: 1rem 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero visible">
-        <h1>Rock-Solid Marketing.<br>Unshakable Results.</h1>
-        <p>Turn your digital presence into a foundation for sustainable business growth.</p>
-        <button class="cta-button">Build Your Foundation →</button>
-        <p class="data-point">Businesses with managed social media see 119% higher ROI (Lyfe Marketing)</p>
-    </section>
+    <nav class="sticky-nav">
+        <div class="nav-content">
+            <a href="#" class="logo">StonedLeads</a>
+        </div>
+    </nav>
 
-    <!-- Services -->
-    <section class="services">
-        <h2>Carved In Stone Solutions</h2>
-        <div class="services-grid">
-            <!-- Social Media -->
-            <div class="service-card">
-                <div class="service-icon"></div>
-                <h3>Bedrock Audience Building</h3>
-                <p>Stop watching competitors dominate your space. Our proven approach builds engaged followers who become loyal customers.</p>
-                <p class="data-point">"91% of consumers visit brand websites after social follow" (Sprout Social)</p>
-                <a href="#" class="service-cta">Claim Your Audience Strategy →</a>
-            </div>
-
-            <!-- Copywriting -->
-            <div class="service-card">
-                <div class="service-icon"></div>
-                <h3>Words Set In Stone</h3>
-                <p>Craft messages that connect and convert. Copy that speaks directly to your ideal customers and drives action.</p>
-                <p class="data-point">"30% higher conversion rates with clear messaging" (Nielsen Norman Group)</p>
-                <a href="#" class="service-cta">Get Conversion-Ready Copy →</a>
-            </div>
-
-            <!-- Ad Campaigns -->
-            <div class="service-card">
-                <div class="service-icon"></div>
-                <h3>Precision-Cut Campaigns</h3>
-                <p>End wasteful ad spend. Targeted campaigns deliver qualified leads at profitable costs through continuous optimization.</p>
-                <p class="data-point">"2.7X better results than non-targeted ads" (Harvard Business Review)</p>
-                <a href="#" class="service-cta">Launch Profitable Campaigns →</a>
-            </div>
-
-            <!-- Website Building -->
-            <div class="service-card">
-                <div class="service-icon"></div>
-                <h3>Monumental Online Presence</h3>
-                <p>Transform visitors into customers. High-converting websites that work around the clock to grow your business.</p>
-                <p class="data-point">"85% conduct online research before purchasing" (Salesforce)</p>
-                <a href="#" class="service-cta">Secure Your Converting Site →</a>
-            </div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Rock-Solid Marketing.<br>Unshakable Results.</h1>
+            <p class="subheadline">Turn your digital presence into a foundation for sustainable business growth.</p>
+            <a href="#" class="cta-button">Build Your Foundation →</a>
         </div>
     </section>
-
-    <!-- Results -->
-    <section class="results">
-        <h2>Concrete Results You Can Build On</h2>
-        <div class="results-grid">
-            <div class="result-card">
-                <h3>47% Revenue Increase</h3>
-                <div class="graph">
-                    <div class="graph-bar" style="--height: 70%;"></div>
-                </div>
-                <p>Strategic ad campaigns and conversion-focused website updates show consistent results across e-commerce.</p>
-                <p class="data-point">Hubspot 2023 E-commerce Report</p>
-            </div>
-
-            <div class="result-card">
-                <h3>300% Audience Growth</h3>
-                <div class="graph">
-                    <div class="graph-bar" style="--height: 90%;"></div>
-                </div>
-                <p>Systematic social media management delivering 3X audience growth within 90 days.</p>
-                <p class="data-point">Social Media Examiner Industry Report</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process -->
-    <section class="process">
-        <h2>Building Your Marketing Monument</h2>
-        <div class="process-steps">
-            <!-- Step 1 -->
-            <div class="process-step">
-                <div class="step-number">01</div>
-                <h3>Solid Strategy</h3>
-                <div class="step-timeframe">Week 1</div>
-                <p>Comprehensive business analysis and market research to create your growth roadmap.</p>
-                <p class="data-point">"313% more likely to succeed with documented strategies" (CoSchedule)</p>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="process-step">
-                <div class="step-number">02</div>
-                <h3>Expert Implementation</h3>
-                <div class="step-timeframe">Weeks 2-4</div>
-                <p>Proven frameworks customized and implemented for your specific business goals.</p>
-                <p class="data-point">"80% better results through consistent execution" (Content Marketing Institute)</p>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="process-step">
-                <div class="step-number">03</div>
-                <h3>Continuous Improvement</h3>
-                <div class="step-timeframe">Ongoing</div>
-                <p>Data-driven optimization ensuring long-term, sustainable growth.</p>
-                <p class="data-point">"42% better ROI from optimized campaigns" (Google Benchmarks)</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="contact">
-        <h2>Lay Your First Stone Today</h2>
-        <form class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Email Address" required>
-            <input type="text" placeholder="Business Name" required>
-            <select>
-                <option>Social Media Management</option>
-                <option>Copywriting</option>
-                <option>Ad Campaigns</option>
-                <option>Website Building</option>
-            </select>
-            <button type="submit" class="cta-button">Build With StonedLeads</button>
-            <p class="data-point">"Businesses with expert help grow 28% faster" (Gartner Research)</p>
-            <p style="font-size: 0.9rem; margin-top: 1rem;">Your information is secure</p>
-        </form>
-    </section>
-
-    <footer>
-        <p>© 2025 StonedLeads. All rights reserved.</p>
-        <p>Privacy Policy | Terms of Service | Cookie Policy</p>
-    </footer>
 
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.15 });
-
-        document.querySelectorAll('section').forEach(section => {
-            if (!section.classList.contains('hero')) {
-                observer.observe(section);
+        // Add scroll effect for sticky nav
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.sticky-nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = 'none';
             }
         });
     </script>
