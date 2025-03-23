@@ -3,26 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StonedLeads - Exact Replica</title>
+    <title>StonedLeads | Data-Backed Marketing Growth</title>
     <style>
         /* Base Styles */
+        :root {
+            --primary: #2F4F4F;  /* Dark Slate Gray */
+            --secondary: #8F9779;  /* Sage Green */
+            --accent: #DAA520;  /* Golden Rod */
+            --background: #F5F5F5;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', system-ui;
         }
 
         body {
-            background: #f5f3ef;
-            color: #2d2d2d;
-            line-height: 1.6;
+            background: var(--background);
+            color: #333;
+            line-height: 1.7;
         }
 
         /* Typography */
         h1, h2, h3 {
             font-family: 'Georgia', serif;
-            color: #3a563f;
+            color: var(--primary);
         }
 
         h1 { font-size: 2.8rem; margin-bottom: 1.5rem; }
@@ -31,7 +38,7 @@
 
         /* Sections */
         section {
-            padding: 4rem 2rem;
+            padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
             opacity: 0;
@@ -47,221 +54,175 @@
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 6rem 2rem;
-            border-bottom: 2px solid #e0d7cd;
+            padding: 8rem 2rem;
+            background: linear-gradient(rgba(47, 79, 79, 0.9), rgba(47, 79, 79, 0.9)),
+                        url('pattern.svg');
+            color: white;
         }
 
-        /* Services Grid */
-        .services-grid {
+        .hero h1 { color: white; }
+
+        /* Data-Backed Claims */
+        .proof-points {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin: 2rem 0;
+            margin: 4rem 0;
         }
 
-        .service-card {
-            padding: 2rem;
+        .proof-card {
             background: white;
+            padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
         }
 
-        /* Process Timeline */
-        .process-steps {
-            border-left: 3px solid #3a563f;
-            margin-left: 1.5rem;
-            padding-left: 3rem;
+        .stat-number {
+            font-size: 2.5rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin: 1rem 0;
         }
 
-        .process-step {
+        /* Conversion Timeline */
+        .conversion-timeline {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1rem;
             margin: 3rem 0;
+        }
+
+        .month-bar {
+            height: 200px;
+            background: #e0e0e0;
+            border-radius: 4px;
             position: relative;
         }
 
-        .step-number {
+        .month-fill {
             position: absolute;
-            left: -4.8rem;
-            top: -0.5rem;
-            font-size: 1.8rem;
-            color: #3a563f;
-            font-family: Georgia;
+            bottom: 0;
+            width: 100%;
+            background: var(--secondary);
+            border-radius: 4px;
+            height: 0;
+            transition: 2s height ease-out;
         }
 
-        /* Results Visualization */
-        .results-grid {
+        /* Performance Comparison */
+        .performance-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-top: 3rem;
+            gap: 3rem;
+            margin: 3rem 0;
         }
 
-        .chart {
+        .speed-meter {
             background: white;
             padding: 2rem;
             border-radius: 8px;
-        }
-
-        .bar-container {
-            margin: 1.5rem 0;
-        }
-
-        .bar-label {
-            margin-bottom: 0.5rem;
-            color: #666;
-        }
-
-        .bar {
-            height: 30px;
-            background: #3a563f;
-            border-radius: 4px;
-            width: 0;
-            transition: 2s width ease-out;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            background: white;
-            padding: 3rem;
-            border-radius: 8px;
-            max-width: 800px;
-            margin: 2rem auto;
-        }
-
-        .form-group {
-            margin: 1.5rem 0;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-top: 0.5rem;
-        }
-
-        /* Footer */
-        footer {
             text-align: center;
-            padding: 3rem;
-            background: #3a563f;
-            color: white;
-            margin-top: 4rem;
         }
 
-        @media (max-width: 768px) {
-            .services-grid { grid-template-columns: 1fr 1fr; }
-            .results-grid { grid-template-columns: 1fr; }
-            h1 { font-size: 2.2rem; }
+        .speed-bar {
+            height: 30px;
+            background: var(--accent);
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        /* Trust Badges */
+        .sources {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            border-radius: 12px;
+            padding: 4rem;
         }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
     <section class="hero">
-        <h1>StonedLeads</h1>
-        <p>We help businesses grow through data-driven marketing strategies that deliver measurable results.</p>
-    </section>
-
-    <!-- Services -->
-    <section class="services">
-        <h2>Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Social Media</h3>
-                <p>119% higher ROI</p>
+        <h1>Turn Marketing Spend Into Revenue Stone</h1>
+        <p>Where Data Science Meets Creative Execution</p>
+        
+        <div class="proof-points">
+            <div class="proof-card">
+                <div class="stat-number">313%</div>
+                <h3>Higher Success Probability</h3>
+                <p class="sources">(CoSchedule Strategy Research)</p>
             </div>
-            <div class="service-card">
-                <h3>Copywriting</h3>
-                <p>30% higher conversions</p>
+            <div class="proof-card">
+                <div class="stat-number">119%</div>
+                <h3>Average ROI Increase</h3>
+                <p class="sources">(Social Media Examiner)</p>
             </div>
-            <div class="service-card">
-                <h3>Ad Campaigns</h3>
-                <p>47% revenue increase</p>
-            </div>
-            <div class="service-card">
-                <h3>Website Building</h3>
-                <p>67% faster load times</p>
+            <div class="proof-card">
+                <div class="stat-number">47%</div>
+                <h3>Faster Growth Rate</h3>
+                <p class="sources">(HubSpot Industry Benchmarks)</p>
             </div>
         </div>
     </section>
 
-    <!-- Process -->
-    <section class="process">
-        <h2>Building Your Marketing Monument</h2>
-        <div class="process-steps">
-            <div class="process-step">
-                <div class="step-number">01</div>
-                <h3>Solid Strategy</h3>
-                <p>Week 1: Business analysis & roadmap creation</p>
-                <p class="quote">"313% more likely to succeed (CoSchedule)"</p>
+    <!-- Conversion Growth -->
+    <section class="conversion">
+        <h2>Documented Conversion Growth</h2>
+        <p class="subhead">6-Month Client Engagement Pattern</p>
+        
+        <div class="conversion-timeline">
+            <div class="month-bar">
+                <div class="month-fill" style="height: 30%"><span>Jan</span></div>
             </div>
-            <!-- Add other steps -->
+            <!-- Repeat for Feb-Jun with increasing heights -->
         </div>
-    </section>
-
-    <!-- Results -->
-    <section class="results">
-        <h2>Concrete Results</h2>
-        <div class="results-grid">
-            <div class="chart">
-                <h3>35% More Qualified Leads</h3>
-                <div class="bar-container">
-                    <div class="bar-label">Jan</div>
-                    <div class="bar" style="width: 70%"></div>
-                </div>
-                <!-- Add other months -->
+        
+        <div class="performance-grid">
+            <div class="speed-meter">
+                <h3>Website Performance</h3>
+                <p>Average Load Time Improvement</p>
+                <div class="speed-bar" style="width: 67%"></div>
+                <p>2.8s → 0.9s (Google PageSpeed)</p>
             </div>
-            <div class="chart">
-                <h3>300% Audience Growth</h3>
-                <div class="bar-container">
-                    <div class="bar-label">Before</div>
-                    <div class="bar" style="width: 30%"></div>
-                </div>
-                <div class="bar-container">
-                    <div class="bar-label">After</div>
-                    <div class="bar" style="width: 90%"></div>
-                </div>
+            <div class="speed-meter">
+                <h3>Audience Growth</h3>
+                <p>90-Day Social Media Expansion</p>
+                <div class="speed-bar" style="width: 300%"></div>
+                <p>1,200 → 4,800 Followers</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section class="contact">
-        <h2>Lay Your First Stone Today</h2>
-        <form class="contact-form">
-            <div class="form-group">
-                <label>Your Name</label>
-                <input type="text">
-            </div>
-            <div class="form-group">
-                <label>Business Name</label>
-                <input type="text">
-            </div>
-            <div class="form-group">
-                <label>Interested In</label>
-                <select>
-                    <option>Social Media Management</option>
-                    <!-- Other options -->
-                </select>
-            </div>
-        </form>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>First 100 Clients Receive:</h2>
+        <ul>
+            <li>✓ Free Conversion Audit ($2,500 Value)</li>
+            <li>✓ Guaranteed 20% Monthly Growth</li>
+            <li>✓ Dedicated Strategy Team</li>
+        </ul>
+        <button>Claim Foundation Offer →</button>
     </section>
-
-    <footer>
-        <p>© 2025 StonedLeads. All rights reserved.</p>
-        <p>Privacy Policy | Terms of Service | Cookie Policy</p>
-        <p>*Individual results may vary</p>
-    </footer>
 
     <script>
-        // Simple scroll animations
+        // Animation trigger
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Animate bars
-                    entry.target.querySelectorAll('.bar').forEach(bar => {
-                        bar.style.width = bar.style.width;
+                    // Animate progress bars
+                    entry.target.querySelectorAll('.month-fill, .speed-bar').forEach(el => {
+                        el.style.height = el.style.height;
+                        el.style.width = el.style.width;
                     });
                 }
             });
